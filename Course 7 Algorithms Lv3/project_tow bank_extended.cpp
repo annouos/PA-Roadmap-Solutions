@@ -546,6 +546,7 @@ void show_add()
     cout << "-------------------------------------------------" << endl;
     start_add();
 }
+
 void show_find()
 {
     cout << "-------------------------------------------------" << endl;
@@ -553,50 +554,50 @@ void show_find()
     cout << "-------------------------------------------------" << endl;
 
     vector <info> favorite = load_data(location);
-    info self;
     string account_number = read_string("For whome account do you want found ? ");
     print_search(account_number, favorite);
 }
+
 void show_update()
 {
     cout << "-------------------------------------------------" << endl;
     cout << "\t Update Client Info Screen" << endl;
     cout << "-------------------------------------------------" << endl;
     vector <info> favorite = load_data(location);
-    info self;
-    string account_number = read_string("For whome account do you want found ? ");
+    string account_number = read_string("For whome account do you want update ? ");
     update_account(account_number, favorite);
 }
+
 void show_delete()
 {
     cout << "-------------------------------------------------" << endl;
     cout << "\t Delete Client Screen" << endl;
     cout << "-------------------------------------------------" << endl;
     vector <info> favorite = load_data(location);
-    info self;
-    string account_number = read_string("For whome account do you want found ? ");
+    string account_number = read_string("For whome account do you want delete ? ");
     delete_account(account_number, favorite);
 }
+
 void show_deposit()
 {
     cout << "-------------------------------------------------" << endl;
     cout << "\t Deposit For Client Screen" << endl;
     cout << "-------------------------------------------------" << endl;
     vector <info> favorite = load_data(location);
-    info self;
-    string account_number = read_string("For whome account do you want found ? ");
+    string account_number = read_string("For whome account do you want deposit ? ");
     deposit_for_client(account_number, favorite);
 }
+
 void show_withdraw()
 {
     cout << "-------------------------------------------------" << endl;
     cout << "\t Withdraw From Client Screen" << endl;
     cout << "-------------------------------------------------" << endl;
     vector <info> favorite = load_data(location);
-    info self;
-    string account_number = read_string("For whome account do you want found ? ");
+    string account_number = read_string("For whome account do you want withdraw ? ");
     withdraw_from_client(account_number, favorite);
 }
+
 void show_end()
 {
     cout << "-------------------------------------------------" << endl;

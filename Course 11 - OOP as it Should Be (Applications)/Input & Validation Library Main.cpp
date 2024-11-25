@@ -29,7 +29,5 @@ int main()
 
     cout << endl << clsInputValidate::IsValideDate(clsDate(35,12,2022)) << endl;
 
-    system("pause>0");
-
     return 0;
 }

@@ -6,18 +6,17 @@ using namespace std;
 class clsPerson
 {
 
-private:
-   
+    private:
+
     string _FirstName;
     string _LastName;
     string _Email;
     string _Phone;
 
-public:
- 
+    public:
+
     clsPerson( string FirstName, string LastName, string Email, string Phone)
     {
-        
         _FirstName = FirstName;
         _LastName = LastName;
         _Email = Email;
@@ -87,7 +86,6 @@ public:
         cout << "\nEmail    : " << _Email;
         cout << "\nPhone    : " << _Phone;
         cout << "\n___________________\n";
-
     }
 
 };

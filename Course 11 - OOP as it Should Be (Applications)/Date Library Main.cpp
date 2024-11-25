@@ -30,9 +30,6 @@ int main()
     /*cout << "My Age InDays:" <<
         clsDate::CalculateMyAgeInDays(  clsDate(6, 11, 1977) );*/
     //You can try any method at your own..
-
-    
-    system("pause>0");
     return 0;
 };
 

@@ -102,7 +102,5 @@ int main()
     cout << "Text After Decryption  : ";
     cout << TextAfterDecryption << endl;
 
-    system("pause>0");
-
     return 0;
 }

@@ -306,5 +306,19 @@ class clsBankClient : public clsPerson
         return true;
     }
 
+    static float GetTotalBalances()
+    {
+        vector <clsBankClient> vClients = clsBankClient::GetClientsList();
+
+        double TotalBalance = 0;
+
+        for (clsBankClient C : vClients)
+        {
+            TotalBalance += C.GetAccountBalance();
+        }
+
+        return TotalBalance;
+    }
+
 };
 

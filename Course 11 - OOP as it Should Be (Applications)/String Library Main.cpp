@@ -11,7 +11,6 @@ int main()
 {
     clsString String1;
     
-
     clsString String2 ("Mohammed");
 
     String1.SetValue("Ali Ahmed");
@@ -93,8 +92,7 @@ int main()
 
     //----------------
 
-    cout << "is letter u vowel? " << clsString::IsVowel('a')
-         << endl;
+    cout << "is letter u vowel? " << clsString::IsVowel('a') << endl;
 
     //----------------
 
@@ -176,7 +174,7 @@ int main()
         << endl;
 
     //---------------
-    system("pause>0");
+    // system("pause>0");
     return 0;
 };
 

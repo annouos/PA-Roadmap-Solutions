@@ -1,5 +1,6 @@
 
 #pragma once
+
 #include <iostream>
 #include <string>
 #include "clsPerson.h"
@@ -8,6 +9,8 @@
 #include <fstream>
 
 using namespace std;
+
+
 class clsBankClient : public clsPerson
 {
     private:

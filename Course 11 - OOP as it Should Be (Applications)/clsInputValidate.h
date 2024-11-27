@@ -8,6 +8,9 @@
 #include "clsString.h"
 #include "clsDate.h"
 
+using namespace std;
+
+
 class clsInputValidate
 {
 

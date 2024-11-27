@@ -6,6 +6,8 @@
 #include "clsBankClient.h"
 #include "clsInputValidate.h"
 
+using namespace std;
+
 
 class clsDeleteClientScreen : protected clsScreen
 {

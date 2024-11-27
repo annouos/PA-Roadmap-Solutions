@@ -7,6 +7,8 @@
 #include "clsInputValidate.h"
 #include "clsUtil.h"
 
+using namespace std;
+
 
 class clsTotalBalanceScreen : protected clsScreen
 {

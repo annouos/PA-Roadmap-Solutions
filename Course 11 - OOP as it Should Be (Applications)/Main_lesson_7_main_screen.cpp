@@ -6,6 +6,6 @@
 int main()
 
 {
-    clsMainScreen::ShowMainMenue();
+    clsMainScreen::ShowMainMenu();
     return 0;
 }

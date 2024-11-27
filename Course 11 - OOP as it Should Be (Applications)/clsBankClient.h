@@ -174,22 +174,6 @@ class clsBankClient : public clsPerson
         return _LoadClientsDataFromFile();
     }
 
-    void Print()
-    {
-        cout << "\nClient Card:";
-        cout << "\n__________________";
-        cout << "\nFirstName   : " << GetFirstName();
-        cout << "\nLastName    : " << GetLastName();
-        cout << "\nFull Name   : " << FullName();
-        cout << "\nEmail       : " << GetEmail();
-        cout << "\nPhone       : " << GetPhone();
-        cout << "\nAcc. Number : " << _AccountNumber;
-        cout << "\nPassword    : " << _PinCode;
-        cout << "\nBalance     : " << _AccountBalance;
-        cout << "\n__________________" << endl;
-
-    }
-
     static clsBankClient Find(string AccountNumber)
     {
         fstream MyFile;
@@ -304,6 +288,26 @@ class clsBankClient : public clsPerson
         *this = _GetEmptyClientObject();
 
         return true;
+    }
+
+    void Deposit(double Amount)
+    {
+        _AccountBalance += Amount;
+        Save();
+    }
+
+    bool Withdraw(double Amount)
+    {
+        if ( Amount > _AccountBalance )
+        {
+            return false;
+        }
+        else
+        {
+            _AccountBalance -= Amount;
+            Save();
+            return true;
+        }
     }
 
     static float GetTotalBalances()

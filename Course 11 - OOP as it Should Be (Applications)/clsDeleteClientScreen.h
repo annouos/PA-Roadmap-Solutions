@@ -32,6 +32,11 @@ class clsDeleteClientScreen : protected clsScreen
 
     static void ShowDeleteClient()
     {
+        if (!CheckAccessRights(clsUser::enPermissions::pDeleteClient))
+        {
+            return;// this will exit the function and it will not continue
+        }
+
         _DrawScreenHeader("\t  Delete Client Screen");
 
         string AccountNumber = "";

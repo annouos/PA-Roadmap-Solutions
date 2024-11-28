@@ -27,13 +27,18 @@ class clsListClientsScreen : protected clsScreen
 
     static void ShowClientsList()
     {
+        if (!CheckAccessRights(clsUser::enPermissions::pListClients))
+        {
+            return;// this will exit the function and it will not continue
+        }
+
         vector <clsBankClient> vClients = clsBankClient::GetClientsList();
         string Title = "\t  Client List Screen";
         string SubTitle ="\t    (" + to_string(vClients.size()) + ") Client(s).";
 
         _DrawScreenHeader(Title, SubTitle);
         
-        cout << setw(8) << left << "" << "\n\t_______________________________________________________";
+        cout << setw(8) << left << "" << "\n\t______________________________________________________________";
         cout << "_________________________________________\n" << endl;
 
         cout <<  setw(8) << left << "" << "| " << left << setw(15) << "Accout Number";
@@ -42,7 +47,7 @@ class clsListClientsScreen : protected clsScreen
         cout << "| " << left << setw(21) << "Email";
         cout << "| " << left << setw(10) << "Pin Code";
         cout << "| " << left << setw(12) << "Balance";
-        cout << setw(8) << left << "" << "\n\t_______________________________________________________";
+        cout << setw(8) << left << "" << "\n\t______________________________________________________________";
         cout << "_________________________________________\n" << endl;
 
         if (vClients.size() == 0)
@@ -55,7 +60,7 @@ class clsListClientsScreen : protected clsScreen
                 cout << endl;
             }
         }
-        cout << setw(8) << left << "" << "\n\t_______________________________________________________";
+        cout << setw(8) << left << "" << "\n\t______________________________________________________________";
         cout << "_________________________________________\n" << endl;
     }
 

@@ -38,7 +38,7 @@ class clsUser : public clsPerson
         stUserRecord += User.GetEmail() + Seperator;
         stUserRecord += User.GetPhone() + Seperator;
         stUserRecord += User.GetUsername() + Seperator;
-        stUserRecord += User.GetPhone() + Seperator;
+        stUserRecord += User.GetPassword() + Seperator;
         stUserRecord += to_string(User.GetPermissions());
 
         return stUserRecord;
@@ -125,6 +125,19 @@ class clsUser : public clsPerson
 
 
     public:
+
+    enum enPermissions { eAll = -1, pListClients = 1, pAddNewClient = 2, pDeleteClient = 4, pUpdateClients = 8, pFindClient = 16, pTranactions = 32, pManageUsers = 64 };
+
+    bool CheckAccessPermission(enPermissions Permission)
+    {
+        if (this->GetPermissions() == enPermissions::eAll)
+            return true;
+
+        if ((Permission & this->GetPermissions()) == Permission)
+            return true;
+        else
+            return false;
+    }
 
     clsUser(enMode Mode, string FirstName, string LastName, string Email, string Phone, string Username, string Password, int Permissions) :
         clsPerson(FirstName, LastName, Email, Phone)

@@ -71,9 +71,12 @@ class clsMainScreen : protected clsScreen
         clsManageUsersScreen::ShowManageUsersMenu();
     }
 
-    static void _ShowEndScreen()
+    static void _Logout()
     {
-        cout << "\nEnd Screen Will be here...\n";
+        CurrentUser = clsUser::Find("", "");
+        cout << "-------------------------------------------------" << endl;
+        cout << "\t Logout Program :-)" << endl;
+        cout << "-------------------------------------------------" << endl;
     }
 
     static void _PerfromMainMenuOption(enMainMenuOptions MainMenuOption)
@@ -119,8 +122,7 @@ class clsMainScreen : protected clsScreen
             break;
         case enMainMenuOptions::eExit:
             system("clear");
-            _ShowEndScreen();
-            //Login();
+            _Logout();
             break;
         }
     }

@@ -5,6 +5,10 @@
 #include "clsScreen.h"
 #include "clsInputValidate.h"
 #include "clsListUsersScreen.h"
+#include "clsAddNewUserScreen.h"
+#include "clsDeleteUserScreen.h"
+#include "clsUpdateUserScreen.h"
+#include "clsFindUserScreen.h"
 
 using namespace std;
 
@@ -29,22 +33,22 @@ class clsManageUsersScreen : protected clsScreen
 
     static void _ShowAddNewUsersScreen()
     {
-        cout << "\nThis all users will be here\n";
+        clsAddNewUserScreen::ShowAddNewUserScreen();
     }
 
     static void _ShowDeleteUsersScreen()
     {
-        cout << "\nThis all users will be here\n";
+        clsDeleteUserScreen::ShowDeleteUser();
     }
 
     static void _ShowUpdateUsersScreen()
     {
-        cout << "\nThis all users will be here\n";
+        clsUpdateUserScreen::ShowUpdateUser();
     }
 
     static void _ShowFindUsersScreen()
     {
-        cout << "\nThis all users will be here\n";
+        clsFindUserScreen::ShowFindUserScreen();
     }
 
     static void _GoBackToManageUsersMenu()
@@ -105,6 +109,11 @@ class clsManageUsersScreen : protected clsScreen
 
     static void ShowManageUsersMenu()
     {
+        if (!CheckAccessRights(clsUser::enPermissions::pManageUsers))
+        {
+            return;// this will exit the function and it will not continue
+        }
+
         system("clear");
         _DrawScreenHeader("\t  Manage Users Screen");
 

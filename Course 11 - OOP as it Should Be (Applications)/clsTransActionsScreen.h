@@ -87,6 +87,11 @@ class clsTransActionsScreen : protected clsScreen
 
     static void ShowTransActionsMenu()
     {
+        if (!CheckAccessRights(clsUser::enPermissions::pTranactions))
+        {
+            return;// this will exit the function and it will not continue
+        }
+
         system("clear");
         _DrawScreenHeader("\t  Transactions Screen");
 

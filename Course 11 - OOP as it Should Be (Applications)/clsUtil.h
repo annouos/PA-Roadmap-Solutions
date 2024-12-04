@@ -11,17 +11,16 @@ using namespace std;
 
 class clsUtil
 {
-
     public:
     enum enCharType {SamallLetter = 1, CapitalLetter = 2, Digit = 3, MixChars = 4, SpecialCharacter = 5};
 
-    static void  Srand()
+    static void Srand()
     {
         //Seeds the random number generator in C++, called only once
         srand((unsigned)time(NULL));
     }
 
-    static  int RandomNumber(int From, int To)
+    static int RandomNumber(int From, int To)
     {
         //Function to generate a random number
         int randNum = rand() % (To - From + 1) + From;
@@ -30,7 +29,6 @@ class clsUtil
 
     static char GetRandomCharacter(enCharType CharType)
     {
-
         //updated this method to accept mixchars
         if (CharType == MixChars)
         {
@@ -40,7 +38,6 @@ class clsUtil
 
         switch (CharType)
         {
-
         case enCharType::SamallLetter:
         {
             return char(RandomNumber(97, 122));
@@ -66,51 +63,39 @@ class clsUtil
             return char(RandomNumber(65, 90));
             break;
         }
-
         }
+
         return 'x';
     }
 
-    static  string GenerateWord(enCharType CharType, short Length)
+    static string GenerateWord(enCharType CharType, short Length)
 
     {
         string Word;
-
         for (int i = 1; i <= Length; i++)
-
         {
-
             Word = Word + GetRandomCharacter(CharType);
-
         }
         return Word;
     }
 
     static string  GenerateKey(enCharType CharType = CapitalLetter)
     {
-
         string Key = "";
-
-
         Key = GenerateWord(CharType, 4) + "-";
         Key = Key + GenerateWord(CharType, 4) + "-";
         Key = Key + GenerateWord(CharType, 4) + "-";
         Key = Key + GenerateWord(CharType, 4);
-
-
         return Key;
     }
 
     static void GenerateKeys(short NumberOfKeys, enCharType CharType)
     {
-
         for (int i = 1; i <= NumberOfKeys; i++)
-
         {
             cout << "Key [" << i << "] : ";
             cout << GenerateKey(CharType) << endl;
         }
-
     }
 
     static void FillArrayWithRandomNumbers(int arr[100], int arrLength, int From, int To)
@@ -123,7 +108,6 @@ class clsUtil
     {
         for (int i = 0; i < arrLength; i++)
             arr[i] = GenerateWord(CharType, Wordlength);
-
     }
 
     static void FillArrayWithRandomKeys(string arr[100], int arrLength, enCharType CharType)
@@ -132,7 +116,7 @@ class clsUtil
             arr[i] = GenerateKey(CharType);
     }
 
-    static  void Swap(int& A, int& B)
+    static void Swap(int& A, int& B)
     {
         int Temp;
 
@@ -141,7 +125,7 @@ class clsUtil
         B = Temp;
     }
 
-    static  void Swap(double& A, double& B)
+    static void Swap(double& A, double& B)
     {
         double Temp;
 
@@ -150,7 +134,7 @@ class clsUtil
         B = Temp;
     }
 
-    static  void Swap(bool& A, bool& B)
+    static void Swap(bool& A, bool& B)
     {
         bool Temp;
 
@@ -159,7 +143,7 @@ class clsUtil
         B = Temp;
     }
 
-    static  void Swap(char& A, char& B)
+    static void Swap(char& A, char& B)
     {
         char Temp;
 
@@ -168,7 +152,7 @@ class clsUtil
         B = Temp;
     }
 
-    static  void Swap(string& A, string& B)
+    static void Swap(string& A, string& B)
     {
         string Temp;
 
@@ -177,33 +161,28 @@ class clsUtil
         B = Temp;
     }
 
-    static  void Swap(clsDate& A, clsDate& B)
+    static void Swap(clsDate& A, clsDate& B)
     {
         clsDate::SwapDates(A, B);
-
     }
 
-    static  void ShuffleArray(int arr[100], int arrLength)
+    static void ShuffleArray(int arr[100], int arrLength)
     {
-
         for (int i = 0; i < arrLength; i++)
         {
             Swap(arr[RandomNumber(1, arrLength) - 1], arr[RandomNumber(1, arrLength) - 1]);
         }
-
     }
 
     static  void ShuffleArray(string arr[100], int arrLength)
     {
-
         for (int i = 0; i < arrLength; i++)
         {
             Swap(arr[RandomNumber(1, arrLength) - 1], arr[RandomNumber(1, arrLength) - 1]);
         }
-
     }
 
-    static string  Tabs(short NumberOfTabs)
+    static string Tabs(short NumberOfTabs)
     {
         string t = "";
 
@@ -213,39 +192,29 @@ class clsUtil
             cout << t;
         }
         return t;
-
     }
 
-    static string  EncryptText(string Text, short EncryptionKey)
+    static string EncryptText(string Text, short EncryptionKey)
     {
-
         for (int i = 0; i <= Text.length(); i++)
         {
-
             Text[i] = char((int)Text[i] + EncryptionKey);
-
         }
 
         return Text;
-
     }
 
-    static string  DecryptText(string Text, short EncryptionKey)
+    static string DecryptText(string Text, short EncryptionKey)
     {
-
         for (int i = 0; i <= Text.length(); i++)
         {
-
             Text[i] = char((int)Text[i] - EncryptionKey);
-
         }
         return Text;
-
     }
 
     static string NumberToText(int Number)
     {
-
         if (Number == 0)
         {
             return "";

@@ -175,5 +175,13 @@ public:
 		return S1;
 	}
 
+	static string ReadString(string Massage)
+	{
+		string  S1 ="";
+		cout << Massage;
+		getline(cin >> ws, S1);
+		return S1;
+	}
+
 };
 

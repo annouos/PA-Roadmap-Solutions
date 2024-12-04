@@ -1,5 +1,7 @@
 #pragma once
+
 #include <iostream>
+#include "clsDate.h"
 
 using namespace std;
 
@@ -17,6 +19,9 @@ class clsScreen
             cout << "\n\t\t\t\t\t  " << SubTitle;
         }
         cout << "\n\t\t\t\t\t______________________________________\n\n";
+
+        cout << "\t\t\t\t\tUser: " << CurrentUser.GetUsername() << endl;
+        cout << "\t\t\t\t\tDate: " << clsDate::DateToString(clsDate()) << endl;
     }
 
     static bool CheckAccessRights(clsUser::enPermissions Permission)

@@ -11,17 +11,6 @@ class Node
     Node * Nexto;
 };
 
-
-void InsertAtBeginning(Node * & Head, int Value)
-{
-    Node * New_Node = new Node();
-
-    New_Node->Value = Value;
-    New_Node->Nexto = Head;
-
-    Head = New_Node;
-}
-
 Node * Find(Node * Head, int Value)
 {
     while (Head != nullptr)
@@ -33,6 +22,16 @@ Node * Find(Node * Head, int Value)
     }
 
     return Head = nullptr;
+}
+
+void InsertAtBeginning(Node * & Head, int Value)
+{
+    Node * New_Node = new Node();
+
+    New_Node->Value = Value;
+    New_Node->Nexto = Head;
+
+    Head = New_Node;
 }
 
 void InsertAfter(Node * Head, int Value)
@@ -108,13 +107,12 @@ void DeleteNode(Node * Head, int Value)
 
 void DeleteFirstNode(Node * & Head)
 {
-    Node * Current = Head;
-
     if (Head == nullptr)
     {
         return;
     }
 
+    Node * Current = Head;
     Head = Current->Nexto;
     delete Current;
 }

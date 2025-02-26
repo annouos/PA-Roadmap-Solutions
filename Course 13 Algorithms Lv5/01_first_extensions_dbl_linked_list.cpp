@@ -8,38 +8,17 @@ int main()
 {
     clsDblLinkedList <int> MydblLinkedList;
 
-    clsDblLinkedList<int>::CheckNode(MydblLinkedList);
-
-    // if (MydblLinkedList.IsEmpty())
-    //     cout << "\nYes, List is empty" << endl;
-    // else
-    //     cout << "\nNo, List is not empty" << endl;
-
-    cout << "\nNumber of items in the linked list = " << MydblLinkedList.Size() << endl;
-
     MydblLinkedList.InsertAtBeginning(7);
     MydblLinkedList.InsertAtBeginning(6);
     MydblLinkedList.InsertAtBeginning(5);
-
-    cout << "\nLinked List Content: \n";
-    MydblLinkedList.PrintList();
-
-    clsDblLinkedList<int>::CheckNode(MydblLinkedList);
-
-    // if (MydblLinkedList.IsEmpty())
-    //     cout << "\nYes, List is empty" << endl;
-    // else
-    //     cout << "\nNo, List is not empty" << endl;
-
-    MydblLinkedList.Clear();
-    cout << "\nAfter Excuting Clear: ";
-    cout << "\nNumber of items in the linked list = " << MydblLinkedList.Size() << endl;
-
     MydblLinkedList.InsertAtBeginning(4);
     MydblLinkedList.InsertAtBeginning(3);
     MydblLinkedList.InsertAtBeginning(2);
     MydblLinkedList.InsertAtBeginning(1);
-
+    
+    cout << "\nLinked List Content: \n";
+    MydblLinkedList.PrintList();
+    
     clsDblLinkedList <int>::Node * N_1 = MydblLinkedList.Find(2);
 
     if (N_1 != nullptr)

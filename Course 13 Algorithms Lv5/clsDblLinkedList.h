@@ -1,4 +1,4 @@
-
+#pragma once
 #include <iostream>
 
 using namespace std;
@@ -21,11 +21,11 @@ template <class T> class clsDblLinkedList
         Node * prev;
     };
 
-    Node * head = nullptr;
+    Node * Head = nullptr;
 
     void PrintList()
     {
-        Node * Current = head;
+        Node * Current = Head;
 
         while (Current != nullptr)
         {
@@ -39,20 +39,20 @@ template <class T> class clsDblLinkedList
     {
         Node * NewNode = new Node();
         NewNode->value = value;
-        NewNode->next = head;
+        NewNode->next = Head;
         NewNode->prev = nullptr;
 
-        if (head != nullptr)
+        if (Head != nullptr)
         {
-            head->prev = NewNode;
+            Head->prev = NewNode;
         }
-        head = NewNode;
+        Head = NewNode;
         _size++;
     }
 
     Node * Find (T value)
     {
-        Node * Current = head;
+        Node * Current = Head;
         while (Current != nullptr)
         {
             if (Current->value == value)
@@ -85,14 +85,14 @@ template <class T> class clsDblLinkedList
         NewNode->value = value;
         NewNode->next = nullptr;
 
-        if (head == nullptr)
+        if (Head == nullptr)
         {
             NewNode->prev = nullptr;
-            head = NewNode;
+            Head = NewNode;
         }
         else
         {
-            Node * Current = head;
+            Node * Current = Head;
             while (Current->next != nullptr)
             {
                 Current = Current->next;
@@ -105,17 +105,17 @@ template <class T> class clsDblLinkedList
 
     void DeleteFirstNode()
     {   
-        if (head == nullptr)
+        if (Head == nullptr)
         {
             return;
         }
 
-        Node * Temp = head;
-        head = head->next;
+        Node * Temp = Head;
+        Head = Head->next;
 
-        if (head != nullptr)
+        if (Head != nullptr)
         {
-            head->prev = nullptr;
+            Head->prev = nullptr;
         }
 
         delete Temp;
@@ -124,11 +124,11 @@ template <class T> class clsDblLinkedList
 
     void DeleteNode(Node * & NodeToDelete)
     {
-        if (head == nullptr || NodeToDelete == nullptr) {
+        if (Head == nullptr || NodeToDelete == nullptr) {
             return;
         }
-        if (head == NodeToDelete) {
-            head = NodeToDelete->next;
+        if (Head == NodeToDelete) {
+            Head = NodeToDelete->next;
         }
         if (NodeToDelete->next != nullptr) {
             NodeToDelete->next->prev = NodeToDelete->prev;
@@ -143,16 +143,16 @@ template <class T> class clsDblLinkedList
 
     void DeleteLastNode()
     {    
-        if (head == nullptr) {
+        if (Head == nullptr) {
             return;
         }
-        if (head->next == nullptr) {
-            delete head;
-            head = nullptr;
+        if (Head->next == nullptr) {
+            delete Head;
+            Head = nullptr;
             return;
         }
 
-        Node * Current = head;
+        Node * Current = Head;
 
         while (Current->next->next != nullptr)
         {
@@ -173,7 +173,7 @@ template <class T> class clsDblLinkedList
     bool IsEmpty()
     {
         return (_size == 0 ? true : false);
-        // return head == nullptr;
+        // return Head == nullptr;
     }
 
     static void CheckNode(clsDblLinkedList <T> Node)
@@ -190,6 +190,79 @@ template <class T> class clsDblLinkedList
         {
             DeleteFirstNode();
         }
+    }
+
+    void Reverse()
+    {
+        Node * Current = Head;
+        Node * Temp = nullptr;
+        while(Current != nullptr)
+        {
+            Temp = Current->prev;
+            Current->prev = Current->next;
+            Current->next = Temp;
+            Current = Current->prev;
+        }
+        
+        if (Temp != nullptr)
+        {
+            Head = Temp->prev;
+        }
+    }
+
+    Node * GetNode(int index)
+    {
+        int Counter = 0;
+        if (index > _size -1 || index < 0)
+        {
+            return nullptr;
+        }
+
+        Node * Current = Head;
+        while(Current != nullptr && (Current->next != nullptr))
+        {
+            if (Counter == index)
+                break;
+            Current = Current->next;
+            Counter++;
+        }
+        return Current;
+    }
+
+    T GetItem(int index)
+    {
+        Node * ItemNode = GetNode(index);
+
+        if (ItemNode == nullptr)
+            return 0;
+        else
+            return ItemNode->value;
+    }
+
+    bool UpdateItem(int index, T NewValue)
+    {
+        Node * ItemNode = GetNode(index);
+
+        if (ItemNode != nullptr)
+        {
+            ItemNode->value = NewValue;
+            return true;
+        }
+        else
+            return false;
+    }
+
+    bool InsertAfter(int index, T value)
+    {
+        Node * ItemNode = GetNode(index);
+
+        if (ItemNode != nullptr)
+        {
+            InsertAfter(ItemNode, value);
+            return true;
+        }
+        else
+            return false;
     }
 
 };
